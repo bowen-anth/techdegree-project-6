@@ -5,7 +5,13 @@ const overlay = document.getElementById('overlay');
 const start = document.getElementsByClassName('.btn__reset');
 const startButton = document.getElementById('btn__start');
 
-const phrases = ["beat around the bush", "a dime a dozen", "lifes a box of chocolates", "cheaters never prosper", "bite the bullet"];
+const phrases = [
+    "beat around the bush", 
+    "a dime a dozen", 
+    "lifes a box of chocolates", 
+    "cheaters never prosper", 
+    "bite the bullet"
+];
 
 /*
 
@@ -31,13 +37,20 @@ addPhrasetoDisplay(phraseArray);
 */
 
 // return a random phrase from an array
-const getRandomPhraseAsArray = arr => {
-
+function getRandomPhraseAsArray(array) {
+    let phraseIndex = Math.floor(Math.random() * phrases.length);
+    for (let i = 0; i < array.length; i += 1) {
+        let randomPhraseAsArray = array[phraseIndex];
+    }
+    return phraseIndex;
 }
+let result = getRandomPhraseAsArray(phrases);
+console.log(result);
+console.log(phrases[result]);
 
 // adds the letters of a string to the display
 const addPhraseToDisplay = arr => {
-
+    arr.style.display = "test";
 }
 
 // check if a letter is in the phrase
