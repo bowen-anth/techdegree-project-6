@@ -39,23 +39,26 @@ addPhrasetoDisplay(phraseArray);
 // return a random phrase from an array
 function getRandomPhraseAsArray(array) {
     let phraseIndex = Math.floor(Math.random() * phrases.length);
-    for (let i = 0; i < array.length; i += 1) {
-        let randomPhraseAsArray = array[phraseIndex];
-    }
     return phraseIndex;
 }
+
 let result = getRandomPhraseAsArray(phrases);
+
 console.log(result);
 console.log(phrases[result]);
+const chosenPhrase = phrases[result];
+console.log(chosenPhrase.split(''));
+const chosenPhraseLetters = chosenPhrase.split('');
 
 // adds the letters of a string to the display
 const addPhraseToDisplay = arr => {
-    arr.style.display = "test";
+    getRandomPhraseAsArray(phrases);
+    console.log(getRandomPhraseAsArray(phrases));
 }
 
 // check if a letter is in the phrase
 const checkLetter = button => {
-
+    
 }
 
 // check if the game has been won or lost
@@ -64,6 +67,7 @@ const checkWin = () => {
 }
 
 // listen for the start game button to be pressed
+// hide overlay on start button press
 startButton.addEventListener('click', () => {
     console.log('start button pressed');
     overlay.style.display = "none";
