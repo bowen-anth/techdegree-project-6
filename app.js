@@ -13,6 +13,11 @@ const phrases = [
     "bite the bullet"
 ];
 
+const phraseDisplay = document.getElementById('phrase').style.display = "block";
+document.getElementById('phrase');
+document.getElementById('qwerty');
+document.getElementById('scoreboard');
+
 /*
 
 start.forEach(hide => hide.addEventListener('click', event => {
@@ -44,16 +49,25 @@ function getRandomPhraseAsArray(array) {
 
 let result = getRandomPhraseAsArray(phrases);
 
+//splits phrase to letters
 console.log(result);
 console.log(phrases[result]);
 const chosenPhrase = phrases[result];
 console.log(chosenPhrase.split(''));
 const chosenPhraseLetters = chosenPhrase.split('');
 
+//add each letter of phrase as list element
+for (let i = 0; i < chosenPhraseLetters; i++) {
+    let ul = document.GetElementById('phraseList');
+    let li = document.createElement('li');
+    li.appendChild(document.createTextNode(''));
+    ul.appendChild(li);
+    document.getElementsByTagName('li').add('letter');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+}
 // adds the letters of a string to the display
-const addPhraseToDisplay = arr => {
-    getRandomPhraseAsArray(phrases);
-    console.log(getRandomPhraseAsArray(phrases));
+function addPhraseToDisplay(arr) {
+    console.log(chosenPhraseLetters);
+    console.log('test');
 }
 
 // check if a letter is in the phrase
