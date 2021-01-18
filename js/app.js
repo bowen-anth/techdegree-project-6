@@ -3,21 +3,22 @@ const phrase = document.getElementById('phrase');
 let missed = 0;
 const overlay = document.getElementById('overlay');
 const startButton = document.getElementById('startButton');
-const button = document.getElementsByTagName('button');
+const button = document.getElementsByClassName('button');
 const phraseDisplay = document.getElementById('phrase');
 const bannerDisplay = document.getElementById('banner');
 const qwertyDisplay = document.getElementById('qwerty');
 const scoreBoardDisplay = document.getElementById('scoreboard');
 const ul = document.getElementById('list');
 const heart = document.getElementsByClassName('heart');
+const heartLost = 'images/lostHeart.png';
 const letter = document.getElementsByClassName('letter');
 
 let phrases = [
-    'beat around the bush', 
-    'a dime a dozen', 
-    'lifes a box of chocolates', 
-    'cheaters never prosper', 
-    'bite the bullet'
+    'BEAT AROUND THE BUSH', 
+    'A DIME A DOZEN', 
+    'LIFES A BOX OF CHOCOLATES', 
+    'CHEATERS NEVER PROSPER', 
+    'BITE THE BULLET'
 ];
 
     //return a random phrase from an array;
@@ -49,16 +50,16 @@ let addToDisplay = addPhraseToDisplay(result);
 
 //check if a letter is in the phrase
 const checkLetter = btn => {
-	let li = document.getElementsByTagName('LI');
+	let checkLetter = document.getElementsByTagName('LI');
 	let match = null;
-	for (let i = 0; i < li.length; i++) {
-		if (btn == li[i].textContent) {
-			li[i].classList.add('show');
-			match = btn;
+	for (let i = 0; i < checkLetter.length; i++) {
+		if (btn.textContent.toUpperCase() == checkletter[i].textContent.toUpperCase()) {
+			checkLetter[i].classList.add('show');
+			btn.textContent = match;
 		}
 	}
 	return match;
-};
+}
 
 // check if the game has been won or lost
 const checkWin = () => {
@@ -75,5 +76,12 @@ startButton.addEventListener('click', () => {
 
 //listen for the onscreen keyboard to be clicked
 qwerty.addEventListener('click', (e) => {
-
+	if (e.target.tagName == 'BUTTON') {
+		e.target.classList.add('chosen');
+		let correctLetter = checkLetter.call(btn);
+	}
+	else {
+		heartLost[missed];
+		missed++;
+	}
 });
