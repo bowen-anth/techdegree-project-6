@@ -53,9 +53,9 @@ const checkLetter = btn => {
 	let checkLetter = document.getElementsByTagName('LI');
 	let match = null;
 	for (let i = 0; i < checkLetter.length; i++) {
-		if (btn.textContent.toUpperCase() == checkletter[i].textContent.toUpperCase()) {
+		if (btn == checkLetter[i].textContent.toUpperCase()) {
 			checkLetter[i].classList.add('show');
-			btn.textContent = match;
+			match = true;
 		}
 	}
 	return match;
@@ -78,6 +78,7 @@ startButton.addEventListener('click', () => {
 qwerty.addEventListener('click', (e) => {
 	if (e.target.tagName == 'BUTTON') {
 		e.target.classList.add('chosen');
+		e.target.disabled = 'true';
 		let correctLetter = checkLetter.call(btn);
 	}
 	else {
