@@ -1,6 +1,6 @@
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
-let missed = (0);
+let missed = 0;
 const overlay = document.getElementById('overlay');
 const startButton = document.getElementById('startButton');
 const button = document.getElementsByTagName('button');
@@ -49,7 +49,7 @@ let addToDisplay = addPhraseToDisplay(result);
 
 //check if a letter is in the phrase
 const checkLetter = btn => {
-	let li = document.querySelectorAll('li'); //change this to getelementsbytagname
+	let li = document.getElementsByTagName('LI');
 	let match = null;
 	for (let i = 0; i < li.length; i++) {
 		if (btn == li[i].textContent) {
@@ -75,18 +75,5 @@ startButton.addEventListener('click', () => {
 
 //listen for the onscreen keyboard to be clicked
 qwerty.addEventListener('click', (e) => {
-	if (e.target.tagName == 'BUTTON') {
-		e.target.classList.add('chosen');
-		e.target.setAttribute('disabled', ' ');
-		let btn = e.target.textContent;
-		const letterFound = checkLetter(btn);
 
-		if (btn != letterFound) {
-			const heart = document.querySelectorAll('.heart img')
-			const source = 'images/lostHeart.png';
-			heartImage[missed].src = source;
-			missed ++;
-		}
-	}
-	checkWin();
 });
