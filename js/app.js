@@ -63,7 +63,12 @@ const checkLetter = btn => {
 
 // check if the game has been won or lost
 const checkWin = () => {
-
+	if (correctLetter = letter) {
+		overlay.style.class = 'win'
+	}
+	else {
+		overlay.style.display = 'lose'
+	}
 }
 
 //listen for the start game button to be pressed
@@ -73,16 +78,21 @@ startButton.addEventListener('click', () => {
   overlay.style.display = 'none'
 });
 
-
 //listen for the onscreen keyboard to be clicked
 qwerty.addEventListener('click', (e) => {
 	if (e.target.tagName == 'BUTTON') {
 		e.target.classList.add('chosen');
 		e.target.disabled = 'true';
-		let correctLetter = checkLetter.call(btn);
 	}
-	else {
-		heartLost[missed];
+	
+	if (e.target.className == 'chosen') {
+		e.target.disabled = 'true';
+		let correctLetter = checkLetter(e.target.textContent.toUpperCase())(btn); //if I take away '.textContent.toUpperCase()' it breaks
+	}
+
+	if (correctLetter == null) {
+		heartLost[missed].src = 'images/lostheart.png';
 		missed++;
 	}
+	checkWin;
 });
